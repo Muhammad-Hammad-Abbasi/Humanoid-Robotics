@@ -14,7 +14,7 @@ export default function Home(): JSX.Element {
       description="Description will go into a meta tag in <head />">
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
-          <img src="/img/hero-image.png" alt="Futuristic robot hand shaking human hand" className={styles.heroImage} />
+          <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=1600" alt="Futuristic robot hand shaking human hand" className={styles.heroImage} />
           <h1 className="hero__title">Mastering Physical AI & Robotics</h1>
           <p className="hero__subtitle">A comprehensive, AI-generated curriculum for the next generation of engineers.</p>
           <div className={styles.buttons}>
