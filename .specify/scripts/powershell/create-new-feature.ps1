@@ -6,6 +6,7 @@ param(
     [string]$ShortName,
     [int]$Number = 0,
     [switch]$Help,
+    [string]$FeatureDescriptionFilePath,
     [Parameter(ValueFromRemainingArguments = $true)]
     [string[]]$FeatureDescription
 )
@@ -28,12 +29,14 @@ if ($Help) {
 }
 
 # Check if feature description provided
-if (-not $FeatureDescription -or $FeatureDescription.Count -eq 0) {
-    Write-Error "Usage: ./create-new-feature.ps1 [-Json] [-ShortName <name>] <feature description>"
+if ($PSBoundParameters.ContainsKey('FeatureDescriptionFilePath')) {
+    $featureDesc = Get-Content -Path $FeatureDescriptionFilePath -Raw
+} elseif (-not $FeatureDescription -or $FeatureDescription.Count -eq 0) {
+    Write-Error "Usage: ./create-new-feature.ps1 [-Json] [-ShortName <name>] [-FeatureDescriptionFilePath <path>] <feature description>"
     exit 1
+} else {
+    $featureDesc = ($FeatureDescription -join ' ').Trim()
 }
-
-$featureDesc = ($FeatureDescription -join ' ').Trim()
 
 # Resolve repository root. Prefer git information when available, but fall back
 # to searching for repository markers so the workflow still functions in repositories that
