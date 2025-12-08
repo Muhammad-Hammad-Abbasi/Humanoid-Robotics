@@ -1,0 +1,35 @@
+# Gitignore for Node.js (Docusaurus) and Python projects
+
+# Node.js
+node_modules/
+dist/
+build/
+*.log
+.env
+.env.local
+.DS_Store
+yarn-error.log
+.cache/
+.docusaurus/
+.docusaurus_build_metadata/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.python-version
+
+# IDEs and OS
+.idea/
+.vscode/
+*.swp
+*.tmp
+thumbs.db
+
+# Gemini related files
+.gemini/tmp/

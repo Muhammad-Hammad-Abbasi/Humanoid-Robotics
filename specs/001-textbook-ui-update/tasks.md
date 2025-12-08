@@ -21,9 +21,9 @@
 
 **Purpose**: Project initialization and basic structure (Docusaurus project assumed to be already initialized)
 
-- [ ] T001 Clean default content in `frontend/docs/`
-- [ ] T002 Delete `frontend/blog/` folder if it exists
-- [ ] T003 Remove default code in `frontend/src/pages/index.js`
+- [x] T001 Initialize Docusaurus project in `frontend/`
+- [x] T002 Clean default content in `frontend/docs/`
+- [x] T003 Delete `frontend/blog/` folder if it exists
 
 ---
 
@@ -33,7 +33,7 @@
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T004 Update `frontend/src/css/custom.css` with Google Fonts (Merriweather, Inter/Roboto)
+- [x] T004 Remove default code in `frontend/src/pages/index.tsx`
 - [ ] T005 [P] Define CSS variables for "Paper & Ink" aesthetic in `frontend/src/css/custom.css`
 - [ ] T006 [P] Add utility classes for "Glassmorphism" cards in `frontend/src/css/custom.css`
 
