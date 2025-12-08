@@ -49,10 +49,10 @@
 
 ### Implementation for User Story 1
 
-- [ ] T007 Create new `frontend/src/pages/index.js` for the landing page
-- [ ] T008 Generate Hero Image using `nano_banana` with prompt: *"Futuristic robot hand shaking human hand, oil painting style, high detail, warm lighting"*. Store in `frontend/static/img/hero-image.png`.
-- [ ] T009 [US1] Implement Hero section in `frontend/src/pages/index.js` displaying hero image, headline ("Mastering Physical AI"), and CTA button ("Start Reading" linking to `/docs/physical-ai/introduction`)
-- [ ] T010 [US1] Implement 3-column Features Grid in `frontend/src/pages/index.js` summarizing curriculum topics (Physical AI, Humanoids, Algorithms) using new CSS styles
+- [x] T007 Create new `frontend/src/pages/index.tsx` for the landing page
+- [x] T008 Generate Hero Image using `nano_banana` with prompt: *"Futuristic robot hand shaking human hand, oil painting style, high detail, warm lighting"*. Store in `frontend/static/img/hero-image.png`.
+- [x] T009 [US1] Implement Hero section in `frontend/src/pages/index.tsx` displaying hero image, headline ("Mastering Physical AI"), and CTA button ("Start Reading" linking to `/docs/physical-ai/introduction`)
+- [x] T010 [US1] Implement 3-column Features Grid in `frontend/src/pages/index.tsx` summarizing curriculum topics (Physical AI, Humanoids, Algorithms) using new CSS styles
 
 **Checkpoint**: At this point, User Story 1 (Landing Page) should be fully functional and testable independently.
 
