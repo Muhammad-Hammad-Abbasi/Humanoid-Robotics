@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@400;700&display=swap');
+
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #001f3f; /* Deep Navy Blue */
+  --ifm-color-primary-dark: #001428;
+  --ifm-color-primary-darker: #000a12;
+  --ifm-color-primary-darkest: #000000;
+  --ifm-color-primary-light: #3066be; /* Electric Blue */
+  --ifm-color-primary-lighter: #5084dd;
+  --ifm-color-primary-lightest: #70a2fa;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  --ifm-font-family-base: 'Inter', 'Roboto', sans-serif;
+  --ifm-font-family-headings: 'Merriweather', 'Georgia', serif;
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #3066be; /* Electric Blue */
+  --ifm-color-primary-dark: #104ead;
+  --ifm-color-primary-darker: #00369c;
+  --ifm-color-primary-darkest: #001f3f; /* Deep Navy Blue */
+  --ifm-color-primary-light: #5084dd;
+  --ifm-color-primary-lighter: #70a2fa;
+  --ifm-color-primary-lightest: #90c0ff;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Glassmorphism styles */
+.glass-card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  padding: 20px;
+  margin: 10px;
+}
+
+/* Dark mode adjustments for glass-card */
+[data-theme='dark'] .glass-card {
+  background: rgba(0, 31, 63, 0.75); /* Deep Navy with transparency */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border: 1px solid rgba(48, 102, 190, 0.5); /* Electric Blue with transparency */
+}
+
+.button--secondary {
+  font-weight: bold;
+  font-size: 1.25rem;
+  padding: 1rem 2rem;
+  background-image: linear-gradient(45deg, var(--ifm-color-primary-light), var(--ifm-color-primary-lighter));
+  transition: transform 0.2s ease-in-out;
+}
+
+.button--secondary:hover {
+  transform: scale(1.05);
+}

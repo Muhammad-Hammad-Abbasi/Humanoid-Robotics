@@ -70,7 +70,7 @@ const config: Config = {
       items: [
         {to: '/', label: 'Home', position: 'left'},
         {
-          to: '/docs/physical-ai/introduction', // Link to the first chapter
+          to: '/docs/course-index', // Link to the new course index
           position: 'left',
           label: 'Chapters',
         },
