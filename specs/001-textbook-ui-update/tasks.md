@@ -66,14 +66,14 @@
 
 ### Implementation for User Story 2
 
-- [ ] T011 Generate image for Chapter 1 using `nano_banana` with prompt: *"Evolution of AI timeline, diagram style, minimal"*. Store in `frontend/static/img/chapter1-ai-timeline.png`.
-- [ ] T012 [US2] Create `frontend/docs/physical-ai/introduction.mdx` with AI-generated content (400-600 words on "Definition", "Historical Background", "Core Components") and embedded image `frontend/static/img/chapter1-ai-timeline.png`. Add micro-summary.
-- [ ] T013 Generate image for Chapter 2 using `nano_banana` with prompt: *"Humanoid robot anatomy labels, schematic view, blueprint style"*. Store in `frontend/static/img/chapter2-humanoid-anatomy.png`.
-- [ ] T014 [US2] Create `frontend/docs/humanoid-robotics/basics.mdx` with AI-generated content ("Anatomy", "Sensors", "Actuators"), embedded image `frontend/static/img/chapter2-humanoid-anatomy.png`, and a "Hands-on Step" block.
-- [ ] T015 Generate image for Chapter 3 using `nano_banana` with prompt: *"Path planning grid visualization, A* algorithm, heatmap style"*. Store in `frontend/static/img/chapter3-path-planning.png`.
-- [ ] T016 [US2] Create `frontend/docs/robotics-algorithms/advanced.mdx` with AI-generated content ("Path Planning", "Sensor Fusion"), embedded image `frontend/static/img/chapter3-path-planning.png`, and Python code blocks (A* algorithm or similar).
-- [ ] T017 Generate image for Chapter 4 using `nano_banana` with prompt: *"Industrial robot arm assembly line, photorealistic, cinematic shot"*. Store in `frontend/static/img/chapter4-industrial-robot.png`.
-- [ ] T018 [US2] Create `frontend/docs/project-applications/index.mdx` with AI-generated content ("Industrial Robotics", "Future Trends") and embedded image `frontend/static/img/chapter4-industrial-robot.png`.
+- [x] T011 Generate image for Chapter 1 using `nano_banana` with prompt: *"Evolution of AI timeline, diagram style, minimal"*. Store in `frontend/static/img/chapter1-ai-timeline.png`.
+- [x] T012 [US2] Create `frontend/docs/physical-ai/introduction.mdx` with AI-generated content (400-600 words on "Definition", "Historical Background", "Core Components") and embedded image `frontend/static/img/chapter1-ai-timeline.png`. Add micro-summary.
+- [x] T013 Generate image for Chapter 2 using `nano_banana` with prompt: *"Humanoid robot anatomy labels, schematic view, blueprint style"*. Store in `frontend/static/img/chapter2-humanoid-anatomy.png`.
+- [x] T014 [US2] Create `frontend/docs/humanoid-robotics/basics.mdx` with AI-generated content ("Anatomy", "Sensors", "Actuators"), embedded image `frontend/static/img/chapter2-humanoid-anatomy.png`, and a "Hands-on Step" block.
+- [x] T015 Generate image for Chapter 3 using `nano_banana` with prompt: *"Path planning grid visualization, A* algorithm, heatmap style"*. Store in `frontend/static/img/chapter3-path-planning.png`.
+- [x] T016 [US2] Create `frontend/docs/robotics-algorithms/advanced.mdx` with AI-generated content ("Path Planning", "Sensor Fusion"), embedded image `frontend/static/img/chapter3-path-planning.png`, and Python code blocks (A* algorithm or similar).
+- [x] T017 Generate image for Chapter 4 using `nano_banana` with prompt: *"Industrial robot arm assembly line, photorealistic, cinematic shot"*. Store in `frontend/static/img/chapter4-industrial-robot.png`.
+- [x] T018 [US2] Create `frontend/docs/project-applications/index.mdx` with AI-generated content ("Industrial Robotics", "Future Trends") and embedded image `frontend/static/img/chapter4-industrial-robot.png`.
 
 **Checkpoint**: At this point, User Story 2 (Chapter Content) should be fully functional and testable independently, assuming User Story 1 is also functional.
 
