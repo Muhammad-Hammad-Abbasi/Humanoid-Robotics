@@ -34,8 +34,8 @@
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
 - [x] T004 Remove default code in `frontend/src/pages/index.tsx`
-- [ ] T005 [P] Define CSS variables for "Paper & Ink" aesthetic in `frontend/src/css/custom.css`
-- [ ] T006 [P] Add utility classes for "Glassmorphism" cards in `frontend/src/css/custom.css`
+- [x] T005 [P] Define CSS variables for "Paper & Ink" aesthetic in `frontend/src/css/custom.css`
+- [x] T006 [P] Add utility classes for "Glassmorphism" cards in `frontend/src/css/custom.css`
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
