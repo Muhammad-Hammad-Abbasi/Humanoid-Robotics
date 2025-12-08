@@ -5,8 +5,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'Physical AI & Humanoid Robotics Textbook',
+  tagline: 'A comprehensive, AI-generated curriculum for the next generation of engineers.',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -40,26 +40,13 @@ const config: Config = {
       'classic',
       {
         docs: {
-          sidebarPath: './sidebars.ts',
+          sidebarPath: false,
+          sidebarCollapsed: false,
+          sidebarCollapsible: false,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -75,21 +62,20 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'My Site',
+      title: 'Physical AI Textbook',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'Physical AI Textbook Logo',
         src: 'img/logo.svg',
       },
       items: [
+        {to: '/', label: 'Home', position: 'left'},
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          to: '/docs/physical-ai/introduction', // Link to the first chapter
           position: 'left',
-          label: 'Tutorial',
+          label: 'Chapters',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/Humanoid-Robotics/Physical-AI-Textbook',
           label: 'GitHub',
           position: 'right',
         },
@@ -102,8 +88,8 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: 'Chapters',
+              to: '/docs/physical-ai/introduction',
             },
           ],
         },
@@ -128,12 +114,8 @@ const config: Config = {
           title: 'More',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/Humanoid-Robotics/Physical-AI-Textbook',
             },
           ],
         },

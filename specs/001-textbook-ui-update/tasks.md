@@ -87,11 +87,11 @@
 
 ### Implementation for User Story 3
 
-- [ ] T019 Update `frontend/docusaurus.config.js` to configure Navbar links (Logo, Home, Chapters, GitHub).
-- [ ] T020 [US3] Update `frontend/docusaurus.config.js` to set the sidebar to autogenerate based on the `frontend/docs/` folder structure.
-- [ ] T021 [US3] Verify navigation from Home to Chapter 1 works as expected.
-- [ ] T022 [US3] Verify Navbar links work correctly.
-- [ ] T023 [US3] Verify Sidebar is visible on documentation pages and hidden on the Home page.
+- [x] T019 Update `frontend/docusaurus.config.ts` to configure Navbar links (Logo, Home, Chapters, GitHub).
+- [x] T020 [US3] Update `frontend/docusaurus.config.ts` to set the sidebar to autogenerate based on the `frontend/docs/` folder structure.
+- [x] T021 [US3] Verify navigation from Home to Chapter 1 works as expected.
+- [x] T022 [US3] Verify Navbar links work correctly.
+- [x] T023 [US3] Verify Sidebar is visible on documentation pages and hidden on the Home page.
 
 **Checkpoint**: All user stories should now be independently functional.
 
