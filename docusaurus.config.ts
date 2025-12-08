@@ -68,7 +68,6 @@ const config: Config = {
         src: 'img/logo.svg',
       },
       items: [
-        {to: '/', label: 'Home', position: 'left'},
         {
           to: '/docs/course-index', // Link to the new course index
           position: 'left',
