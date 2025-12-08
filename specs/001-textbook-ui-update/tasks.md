@@ -101,11 +101,11 @@
 
 **Purpose**: Overall verification and final adjustments for release.
 
-- [ ] T024 Final verification: Check all `nano_banana` generated images are displaying correctly.
-- [ ] T025 Final verification: Ensure all code examples within chapters use correct syntax highlighting.
-- [ ] T026 Final verification: Check all links and routes for correctness.
-- [ ] T027 Code cleanup and refactoring in `frontend/src/` and `frontend/docs/`.
-- [ ] T028 Update `frontend/README.md` with instructions on how to run the Docusaurus project.
+- [x] T024 Final verification: Check all `nano_banana` generated images are displaying correctly.
+- [x] T025 Final verification: Ensure all code examples within chapters use correct syntax highlighting.
+- [x] T026 Final verification: Check all links and routes for correctness.
+- [x] T027 Code cleanup and refactoring in `frontend/src/` and `frontend/docs/`.
+- [x] T028 Update `frontend/README.md` with instructions on how to run the Docusaurus project.
 
 ---
 
