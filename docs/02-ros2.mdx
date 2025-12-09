@@ -1,0 +1,134 @@
+---
+title: 02. Robotic Nervous System (ROS 2)
+---
+
+![ROS 2 Nodes](https://images.unsplash.com/photo-1535378437327-1e045a3bdbe3?auto=format&fit=crop&q=80&w=1000)
+
+## The "Graph" Architecture: A Distributed System for Robotics
+
+The Robot Operating System (ROS) is not an operating system in the traditional sense, but rather a flexible framework for writing robot software. At its core, ROS 2 is built around a **distributed, peer-to-peer architecture** known as the **ROS Graph**. This graph is a network of independent processes, or **nodes**, that communicate with each other using the underlying Data Distribution Service (DDS) standard.
+
+Imagine a busy workshop. You have a worker for cutting wood, a worker for sanding, a worker for painting, and a worker for assembly. Each worker is an expert at their specific task. They don't need to know the inner workings of the other workers; they just need a standardized way to pass the workpiece from one station to the next.
+
+In ROS 2, these "workers" are called **nodes**. A node is a single, executable program that performs a specific task. You might have a node for controlling the robot's wheels, a node for processing data from a LIDAR sensor, and a node for planning a path. Each node is a self-contained unit that can be developed, tested, and run independently. This modular architecture makes it easy to build and maintain complex robotics software.
+
+## Communication: How Nodes Talk to Each Other
+
+If nodes are the workers, then the communication system is the factory floor, with its conveyor belts and request forms. ROS 2 provides two primary communication models:
+
+### Topics: The Asynchronous Data Stream (Publisher/Subscriber Model)
+
+**Topics** represent an asynchronous, one-to-many communication model, often likened to a broadcast radio station. A node (the **publisher**) sends messages containing specific types of data (e.g., sensor readings, motor commands, robot state information) to a named topic. Any other node (the **subscriber**) that is interested in that data can "tune in" to that topic and receive all messages published to it.
+
+*   **Publishers**: Nodes that produce and send data. They don't know who is listening, only that they are sending data to a specific topic.
+*   **Subscribers**: Nodes that receive and process data. They don't know who is sending the data, only that they are receiving data from a specific topic.
+
+This decoupled nature means publishers and subscribers can be developed independently, run on different machines, and even start and stop at different times without affecting each other. It's ideal for streaming continuous data, where the latest information is most important.
+
+### Services: The Synchronous Request/Response (Client/Server Model)
+
+**Services** are a request/response communication model. Imagine the assembly worker needs a specific screw. They pick up the phone, call the parts department (the "service provider"), and say, "I need a 5mm screw." They then wait for the parts department to deliver the screw.
+
+In ROS 2, a node can act as a **service client**, sending a request to a **service server** and waiting for a response. This is a one-to-one communication model that is ideal for tasks that have a clear beginning and end, such as "move the robot's arm to a specific position" or "capture a high-resolution image."
+
+### Actions: The Long-Running Goal-Based Interaction
+
+**Actions** build upon the request/response model of services but are designed for long-running, preemptable tasks that provide continuous feedback. An action client sends a goal to an action server, which then executes the task and provides periodic feedback to the client. The client can also cancel the goal at any time. This is ideal for tasks like navigating to a destination, where you want to receive updates on the robot's progress.
+
+An action involves three key parts:
+*   **Goal**: The desired state or task to be achieved (e.g., "navigate to the charging station").
+*   **Feedback**: Intermediate updates on the progress of the action (e.g., "robot is 50% to goal," "obstacle detected").
+*   **Result**: The final outcome of the action (e.g., "goal reached," "task failed").
+
+## Code Example: A Full `rclpy` Python Publisher Node
+
+Here is a full, working example of a simple ROS 2 publisher node written in Python using the `rclpy` library. This node demonstrates the `Publisher` concept by repeatedly sending "Hello, World!" messages to a topic.
+
+```python
+# Import the necessary libraries
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String
+
+# Define the publisher node class
+class MinimalPublisher(Node):
+
+    def __init__(self):
+        # Call the Node class constructor and give our node a name
+        super().__init__('minimal_publisher')
+        
+        # Create a publisher:
+        # 1. Message type: String
+        # 2. Topic name: 'topic'
+        # 3. Queue size: 10 (limits the amount of queued messages if subscribers are slow)
+        self.publisher_ = self.create_publisher(String, 'topic', 10)
+        
+        # Define the period for publishing messages (0.5 seconds)
+        timer_period = 0.5  # seconds
+        
+        # Create a timer that will call the timer_callback method repeatedly
+        self.timer = self.create_timer(timer_period, self.timer_callback)
+        
+        # Initialize a counter for our messages
+        self.i = 0
+
+    def timer_callback(self):
+        # Create a new String message object
+        msg = String()
+        # Set the data field of the message
+        msg.data = f'Hello, World! {self.i}'
+        # Publish the message to the topic
+        self.publisher_.publish(msg)
+        # Log that the message has been published
+        self.get_logger().info(f'Publishing: "{msg.data}"')
+        # Increment the counter
+        self.i += 1
+
+def main(args=None):
+    # Initialize the rclpy library. This is a mandatory step for any ROS 2 Python program.
+    rclpy.init(args=args)
+
+    # Create an instance of our MinimalPublisher node
+    minimal_publisher = MinimalPublisher()
+
+    # Spin the node. This means the node will enter a loop, processing callbacks
+    # from the timer, until the node is explicitly shut down (e.g., by Ctrl+C).
+    rclpy.spin(minimal_publisher)
+
+    # Destroy the node explicitly.
+    # (optional - otherwise it will be done automatically
+    # when the garbage collector destroys the node object)
+    minimal_publisher.destroy_node()
+    
+    # Shut down the rclpy library.
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    # Entry point of the script
+    main()
+```
+
+## URDF: The Robot's Digital Blueprint
+
+The **Unified Robot Description Format (URDF)** is an XML file format that meticulously describes the physical and kinematic properties of a robot. It acts as the definitive digital blueprint for your robot, providing a standardized way to represent its structure to various ROS 2 tools and simulators.
+
+A URDF file is fundamentally composed of two main types of elements:
+
+*   **`<link>` elements**: These define the rigid bodies of the robot. Each link represents a physical part—like a robot's torso, upper arm, forearm, or wheel. Within a `<link>` tag, you specify:
+    *   `inertial` properties: Mass, center of mass, and inertia matrix (how resistant it is to changes in rotation).
+    *   `visual` properties: How the link looks (e.g., its geometry like a box, cylinder, or mesh, and its color).
+    *   `collision` properties: How the link interacts physically during collisions (its collision geometry).
+
+*   **`<joint>` elements**: These define the connections between two `<link>` elements. Joints specify how one link can move relative to another. Key attributes for a joint include:
+    *   `name`: A unique identifier for the joint.
+    *   `type`: The type of joint (e.g., `revolute` for rotation, `prismatic` for linear movement, `fixed` for no movement).
+    *   `parent` and `child`: Which links the joint connects.
+    *   `origin`: The position and orientation of the joint relative to its parent link.
+    *   `axis`: The axis of rotation or translation for the joint.
+    *   `limit` (for revolute/prismatic): The upper and lower bounds of the joint's movement.
+
+By defining your robot once in URDF, you can leverage a rich ecosystem of tools without needing to redefine your robot's physical characteristics for each application.
+
+<div style={{border: '1px solid #001f3f', padding: '15px', borderRadius: '8px', backgroundColor: '#f0f8ff', color: '#001f3f'}}>
+**Key Takeaway:** ROS 2 employs a modular, distributed architecture (the ROS Graph) where independent nodes communicate via topics (asynchronous streams), services (synchronous requests), and actions (long-running, feedback-rich tasks). URDF provides an XML-based digital blueprint for robot kinematics and dynamics, essential for simulation, visualization, and control.
+</div>

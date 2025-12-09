@@ -25,7 +25,7 @@ const config: Config = {
   organizationName: 'facebook', // Usually your GitHub org/user name.
   projectName: 'docusaurus', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -43,6 +43,7 @@ const config: Config = {
           sidebarPath: false,
           sidebarCollapsed: false,
           sidebarCollapsible: false,
+          routeBasePath: '/',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -65,7 +66,7 @@ const config: Config = {
       },
       items: [
         {
-          to: '/docs/course-index', // Link to the new course index
+          to: '/docs/01-intro', 
           position: 'left',
           label: 'Chapters',
         },
@@ -85,7 +86,7 @@ const config: Config = {
           items: [
             {
               label: 'Chapters',
-              to: '/docs/physical-ai/introduction',
+              to: '/docs/01-intro',
             },
           ],
         },

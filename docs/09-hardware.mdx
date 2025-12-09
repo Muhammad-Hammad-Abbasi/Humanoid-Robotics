@@ -1,0 +1,60 @@
+---
+title: "09. Hardware Requirements"
+---
+
+![Hardware Requirements](https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&q=80&w=1000)
+
+## The Foundation: Essential Hardware for Physical AI Development
+
+Developing and deploying Physical AI systems, especially those involving robotics and high-fidelity simulations, demands significant computational resources. Unlike purely software-based AI, embodied intelligence is heavily constrained by the physical capabilities of its hardware. This chapter details the essential hardware components and specifications needed to embark on a serious journey into Physical AI and humanoid robotics, covering everything from development workstations to embedded edge devices and advanced robotic platforms.
+
+## Development Workstation Specs: Powering Your AI Endeavors
+
+For any serious AI and robotics development, a robust workstation is non-negotiable. This machine will be responsible for running complex simulations, training deep learning models, compiling large codebases, and managing extensive datasets.
+
+### CPU (Central Processing Unit)
+A multi-core, high-frequency CPU is essential. While many AI workloads are GPU-accelerated, the CPU still handles much of the operating system, compilation, and general program execution. An Intel Core i7/i9 (10th generation or newer) or an AMD Ryzen 7/9 (3000 series or newer) with at least 8 cores and a base clock speed above 3.5 GHz is highly recommended.
+
+### RAM (Random Access Memory)
+Robotics simulations and deep learning frameworks are memory-hungry. A minimum of **32GB of DDR4/DDR5 RAM** is recommended, with **64GB being ideal**. This allows for running large simulations, loading substantial datasets, and maintaining multiple development environments concurrently without performance bottlenecks.
+
+### GPU (Graphics Processing Unit): The AI Powerhouse
+This is arguably the most critical component for Physical AI development. Modern deep learning and high-fidelity simulations (like NVIDIA Isaac Sim) rely almost entirely on GPU acceleration. An **NVIDIA RTX 3090 or RTX 4090** (or equivalent professional-grade GPU) is strongly recommended.
+*   **CUDA Cores**: Essential for parallel computation in AI frameworks.
+*   **VRAM (Video RAM)**: Large amounts of VRAM (24GB for RTX 3090/4090) are crucial for training large deep learning models and handling complex simulation assets.
+
+### Storage (SSD)
+Fast storage is essential for quick loading of large datasets and project files. A **1TB NVMe SSD** is recommended as a primary drive, with additional SSD or HDD storage for datasets.
+
+### Operating System
+**Ubuntu 22.04 LTS** (or a newer LTS release) is the industry standard for robotics development. Its stability, vast open-source libraries, and direct support for ROS 2 and NVIDIA's toolkits make it the preferred choice.
+
+## Edge AI: Bringing Intelligence to the Robot
+
+While powerful workstations are great for development, robots need their intelligence onboard to act autonomously in the real world. This is where **Edge AI** platforms come in.
+
+### NVIDIA Jetson Orin Nano
+The **NVIDIA Jetson Orin Nano** is a compact, power-efficient, and yet highly capable System-on-Module (SOM) designed for entry-level AI and robotics applications at the edge. It brings the power of NVIDIA's Ampere architecture (the same as high-end desktop GPUs) to embedded systems.
+*   **AI Performance**: Up to 40 TOPS for AI inference.
+*   **GPU**: 1024 CUDA Cores, 32 Tensor Cores.
+*   **Power Efficiency**: Low power consumption suitable for battery-powered robots.
+*   **Use Cases**: Ideal for applications like object detection, navigation, and small autonomous robots.
+
+## RealSense Cameras: Affordable and Accurate Depth Perception
+
+For robots to perceive their environment in 3D, **depth cameras** are indispensable. The **Intel RealSense** series offers a range of affordable and high-performance depth cameras that are widely adopted in robotics research and development.
+*   **Technology**: Uses structured light or stereo vision to capture depth information.
+*   **Models**: D435i, L515 are popular choices, offering different ranges and accuracies.
+*   **Integration**: Excellent ROS 2 support, making it easy to integrate into robotic systems for tasks like obstacle avoidance, object manipulation, and 3D mapping.
+
+## Unitree Robots: Platforms for Humanoid Research
+
+For hands-on development and research in humanoid robotics, accessing a capable robotic platform is key. **Unitree Robotics** offers a range of advanced quadruped and bipedal robots that are widely used in academia and industry for research and development.
+*   **Unitree Go1/Go2**: Popular quadruped robots that are relatively affordable and provide a stable platform for locomotion and manipulation research.
+*   **Unitree H1**: An advanced full-size humanoid robot designed for research into complex bipedal locomotion, balance, and human-robot interaction.
+
+These platforms provide the physical embodiment for testing and deploying the advanced Physical AI algorithms developed throughout this curriculum.
+
+<div style={{border: '1px solid #001f3f', padding: '15px', borderRadius: '8px', backgroundColor: '#f0f8ff', color: '#001f3f'}}>
+**Key Takeaway:** Effective Physical AI development requires specialized hardware: powerful workstations with high-end NVIDIA GPUs (RTX 3090/4090) and ample RAM (64GB) for simulation and model training. Edge AI platforms like NVIDIA Jetson Orin Nano and Intel RealSense cameras provide onboard intelligence and perception for robots, while platforms like Unitree robots offer versatile platforms for embodied AI research.
+</div>
