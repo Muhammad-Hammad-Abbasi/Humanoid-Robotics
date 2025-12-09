@@ -12,10 +12,10 @@ const Toolbar = () => {
 
   return (
     <div className={styles.toolbar}>
-      <button onClick={handleTranslate} className={styles.toolbarButton}>
+      <button onClick={handleTranslate} className={`${styles.toolbarButton} ${styles.translateButton}`}>
         Translate to Urdu
       </button>
-      <button onClick={handlePersonalize} className={styles.toolbarButton}>
+      <button onClick={handlePersonalize} className={`${styles.toolbarButton} ${styles.personalizeButton}`}>
         Personalize Content
       </button>
     </div>

@@ -1,19 +1,30 @@
 .toolbar {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 9999;
   display: flex;
   gap: 10px;
-  margin-bottom: 20px;
 }
 
 .toolbarButton {
-  background-color: var(--ifm-color-primary-light);
   color: white;
   border: none;
   border-radius: 5px;
-  padding: 8px 12px;
+  padding: 10px 15px;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.translateButton {
+  background-color: #007bff; /* Blue */
+}
+
+.personalizeButton {
+  background-color: #6f42c1; /* Purple */
 }
 
 .toolbarButton:hover {
-  background-color: var(--ifm-color-primary);
+  opacity: 0.9;
 }

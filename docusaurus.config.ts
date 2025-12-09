@@ -43,10 +43,6 @@ const config: Config = {
           sidebarPath: false,
           sidebarCollapsed: false,
           sidebarCollapsible: false,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -75,7 +71,7 @@ const config: Config = {
         },
         {to: '/login', label: 'Login', position: 'right'},
         {
-          href: 'https://github.com/Humanoid-Robotics/Physical-AI-Textbook',
+          href: 'https://github.com/Muhammad-Hammad-Abbasi/Humanoid-Robotics',
           label: 'GitHub',
           position: 'right',
         },
@@ -115,7 +111,7 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/Humanoid-Robotics/Physical-AI-Textbook',
+              href: 'https://github.com/Muhammad-Hammad-Abbasi/Humanoid-Robotics',
             },
           ],
         },
