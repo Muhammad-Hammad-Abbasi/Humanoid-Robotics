@@ -73,6 +73,7 @@ const config: Config = {
           position: 'left',
           label: 'Chapters',
         },
+        {to: '/login', label: 'Login', position: 'right'},
         {
           href: 'https://github.com/Humanoid-Robotics/Physical-AI-Textbook',
           label: 'GitHub',
