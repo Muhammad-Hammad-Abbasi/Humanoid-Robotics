@@ -14,14 +14,46 @@ const ChatWidget = () => {
     setInputValue(e.target.value);
   };
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     if (inputValue.trim()) {
-      setMessages([...messages, { text: inputValue, sender: 'user' }]);
+      const userMessage = { text: inputValue, sender: 'user' };
+      setMessages(prevMessages => [...prevMessages, userMessage]);
       setInputValue('');
-      // Simulate a response from the AI
-      setTimeout(() => {
-        setMessages(prevMessages => [...prevMessages, { text: 'I am the Physical AI Assistant. How can I help with ROS 2?', sender: 'ai' }]);
-      }, 1000);
+
+      const API_KEY = 'YOUR_GEMINI_KEY';
+      const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+
+      const systemInstruction = "You are an expert on Physical AI and ROS 2. Answer briefly.";
+
+      try {
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            contents: [{
+              parts: [
+                { text: systemInstruction },
+                { text: `\nUser: ${inputValue}` }
+              ]
+            }]
+          }),
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        const aiResponse = data.candidates[0].content.parts[0].text;
+        const aiMessage = { text: aiResponse, sender: 'ai' };
+        setMessages(prevMessages => [...prevMessages, aiMessage]);
+      } catch (error) {
+        console.error("Error calling Gemini API:", error);
+        const errorMessage = { text: 'Sorry, I am having trouble connecting to the AI. Please try again later.', sender: 'ai' };
+        setMessages(prevMessages => [...prevMessages, errorMessage]);
+      }
     }
   };
 
