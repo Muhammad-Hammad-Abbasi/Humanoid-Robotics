@@ -20,7 +20,7 @@ const ChatWidget = () => {
       setMessages(prevMessages => [...prevMessages, userMessage]);
       setInputValue('');
 
-      const API_KEY = 'YOUR_GEMINI_KEY';
+      const API_KEY = 'AIzaSyD4TZxShcQ4JJS1hSV85lk_wIwv-BoLwQ0';
       const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
 
       const systemInstruction = "You are an expert on Physical AI and ROS 2. Answer briefly.";
