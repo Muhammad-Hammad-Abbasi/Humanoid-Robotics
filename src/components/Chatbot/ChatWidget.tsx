@@ -7,6 +7,12 @@ const ChatWidget = () => {
   const [input, setInput] = useState('');
   const messagesEndRef = useRef(null);
 
+  const getPageContext = () => {
+    // Select the main content area of the Docusaurus page
+    const mainContent = document.querySelector('main');
+    return mainContent?.innerText || '';
+  };
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -23,13 +29,25 @@ const ChatWidget = () => {
   const handleSend = async () => {
     if (input.trim() === '') return;
 
-    const userMessage = { text: input, sender: 'user' };
+    const userQuestion = input;
+    const userMessage = { text: userQuestion, sender: 'user' };
     setMessages((prev) => [...prev, userMessage]);
     setInput('');
 
-    // **IMPORTANT**: Replace "YOUR_API_KEY" with your actual Gemini API key
-    const apiKey = 'AIzaSyC7QOlfNKVzQOl4DviCQh9SxLigKCWYgt0';
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+    const apiKey = 'YOUR_GEMINI_KEY'; // Replace with your actual Gemini API key
+    if (apiKey === 'YOUR_GEMINI_KEY' || !apiKey) {
+      alert('Please replace "YOUR_GEMINI_KEY" with your actual Gemini API key in src/components/Chatbot/ChatWidget.tsx');
+      const errorMessage = { text: 'API Key is missing or invalid. Please update `src/components/Chatbot/ChatWidget.tsx`.', sender: 'bot' };
+      setMessages((prev) => [...prev, errorMessage]);
+      return;
+    }
+
+    const pageContext = getPageContext();
+    const truncatedContext = pageContext.substring(0, 3000); // Truncate to ~3000 characters
+
+    const promptText = `Context from textbook: ${truncatedContext}\n\nUser Question: ${userQuestion}`;
+
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`;
 
     try {
       const response = await fetch(url, {
@@ -38,20 +56,23 @@ const ChatWidget = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          contents: [{ parts: [{ text: `You are a helpful assistant for a robotics textbook. Keep your answers concise and focused on the user's question. User's question: ${input}` }] }],
+          contents: [{ parts: [{ text: promptText }] }],
         }),
       });
 
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        const errorData = await response.json();
+        console.error('Gemini API Error:', errorData);
+        throw new Error(`HTTP error! status: ${response.status} - ${errorData.error.message || response.statusText}`);
       }
 
       const data = await response.json();
-      const botMessage = { text: data.candidates[0].content.parts[0].text, sender: 'bot' };
+      const aiResponse = data.candidates[0].content.parts[0].text;
+      const botMessage = { text: aiResponse, sender: 'bot' };
       setMessages((prev) => [...prev, botMessage]);
     } catch (error) {
       console.error('Error calling Gemini API:', error);
-      const errorMessage = { text: 'Sorry, I am having trouble connecting to the AI. Please check the console for errors.', sender: 'bot' };
+      const errorMessage = { text: `Sorry, I am having trouble connecting to the AI. Error: ${error.message}. Please check the console for more details.`, sender: 'bot' };
       setMessages((prev) => [...prev, errorMessage]);
     }
   };
