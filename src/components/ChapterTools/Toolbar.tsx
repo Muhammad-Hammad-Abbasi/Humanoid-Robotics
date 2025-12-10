@@ -20,7 +20,7 @@ const Toolbar = () => {
     setModalContent('Loading...');
 
     // **IMPORTANT**: Replace "YOUR_API_KEY" with your actual Gemini API key
-    const apiKey = 'AIzaSyC7QOlfNKVzQOl4DviCQh9SxLigKCWYgt0';
+    const apiKey = 'AIzaSyAFFBWFtxWFYXnZkNlDkh2G_pEadZiSrBI';
     const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
     try {

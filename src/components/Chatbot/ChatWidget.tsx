@@ -34,8 +34,8 @@ const ChatWidget = () => {
     setMessages((prev) => [...prev, userMessage]);
     setInput('');
 
-    const apiKey = 'YOUR_GEMINI_KEY'; // Replace with your actual Gemini API key
-    if (apiKey === 'YOUR_GEMINI_KEY' || !apiKey) {
+    const apiKey = 'AIzaSyAFFBWFtxWFYXnZkNlDkh2G_pEadZiSrBI'; // Replace with your actual Gemini API key
+    if (apiKey === 'AIzaSyAFFBWFtxWFYXnZkNlDkh2G_pEadZiSrBI' || !apiKey) {
       alert('Please replace "YOUR_GEMINI_KEY" with your actual Gemini API key in src/components/Chatbot/ChatWidget.tsx');
       const errorMessage = { text: 'API Key is missing or invalid. Please update `src/components/Chatbot/ChatWidget.tsx`.', sender: 'bot' };
       setMessages((prev) => [...prev, errorMessage]);
