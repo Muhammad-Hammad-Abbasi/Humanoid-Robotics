@@ -1,1 +1,10 @@
-{"label": "08. Capstone", "position": 8, "link": {"type": "doc", "id": "index"}}
+{
+  "label": "08. Capstone: Autonomous Humanoid",
+  "position": 8,
+  "link": {
+    "type": "doc",
+    "id": "08-capstone/index"
+  },
+  "collapsible": true,
+  "collapsed": true
+}

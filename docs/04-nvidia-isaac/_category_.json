@@ -1,1 +1,10 @@
-{"label": "04. NVIDIA Isaac", "position": 4, "link": {"type": "doc", "id": "index"}}
+{
+  "label": "04. AI Robot Brain (NVIDIA Isaac)",
+  "position": 4,
+  "link": {
+    "type": "doc",
+    "id": "04-nvidia-isaac/index"
+  },
+  "collapsible": true,
+  "collapsed": true
+}

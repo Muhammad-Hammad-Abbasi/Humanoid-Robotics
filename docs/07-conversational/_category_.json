@@ -1,1 +1,10 @@
-{"label": "07. Conversational", "position": 7, "link": {"type": "doc", "id": "index"}}
+{
+  "label": "07. Conversational Robotics",
+  "position": 7,
+  "link": {
+    "type": "doc",
+    "id": "07-conversational/index"
+  },
+  "collapsible": true,
+  "collapsed": true
+}

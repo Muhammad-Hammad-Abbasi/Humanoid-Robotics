@@ -1,1 +1,10 @@
-{"label": "02. ROS 2 System", "position": 2, "link": {"type": "doc", "id": "index"}}
+{
+  "label": "02. The Robotic Nervous System (ROS 2)",
+  "position": 2,
+  "link": {
+    "type": "doc",
+    "id": "02-ros2-system/index"
+  },
+  "collapsible": true,
+  "collapsed": true
+}

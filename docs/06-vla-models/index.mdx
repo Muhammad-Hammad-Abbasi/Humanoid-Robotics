@@ -1,8 +1,9 @@
 ---
-title: Main Chapter
+title: Vision-Language-Action
+slug: /
 ---
 
-![VLA](https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000)
+![VLA Models](https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000)
 
 ## Connecting LLMs to Robot Actions: The Rise of VLA Models
 
@@ -26,7 +27,7 @@ For robots, vision typically comes from RGB cameras, depth cameras (RGB-D), or e
 The language component of VLA models is typically handled by large language models, similar to those that power chatbots. These LLMs are pre-trained on vast amounts of text data, giving them a deep understanding of semantics, syntax, and context. When a human gives a command, the LLM component of the VLA model parses this instruction, extracts key entities (e.g., "red block," "blue mat"), and infers the desired action ("put on"). The ability of LLMs to perform complex reasoning and even synthesize new behaviors from high-level prompts is a game-changer for robotic control.
 
 ### Fusing Modalities
-The crucial innovation in VLA models is the mechanism for fusing these different modalities. Early approaches might have treated vision and language separately, then tried to combine their outputs. Modern VLA architectures, however, often use **transformer models** to create a unified representation of visual and linguistic information. This allows the model to understand the subtle interplay between what it sees and what it hears. For instance, a VLA model can learn that the word "cup" corresponds to a visual object that can be grasped, and that "put on the table" implies a specific spatial relationship and a sequence of manipulation actions.
+The crucial innovation in VLA models is the mechanism for fusing these different modalities. Early approaches might have treated vision and language separately, then tried to combine their outputs. Modern VLA architectures, however, often use **transformer models** to create a unified representation of visual and linguistic information. This allows the model to understand the subtle interplay between what it sees and what it hears. For instance, a VLA model can learn that the verb "grasp" is often associated with visual features of a hand closing around an object.
 
 ## Transformer Models in Robotics: A Unified Approach
 

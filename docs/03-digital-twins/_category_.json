@@ -1,1 +1,10 @@
-{"label": "03. Digital Twins", "position": 3, "link": {"type": "doc", "id": "index"}}
+{
+  "label": "03. Digital Twins (Gazebo & Unity)",
+  "position": 3,
+  "link": {
+    "type": "doc",
+    "id": "03-digital-twins/index"
+  },
+  "collapsible": true,
+  "collapsed": true
+}
