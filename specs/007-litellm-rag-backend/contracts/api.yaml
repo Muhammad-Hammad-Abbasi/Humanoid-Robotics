@@ -1,0 +1,45 @@
+openapi: 3.0.0
+info:
+  title: LiteLLM RAG Backend API
+  version: 1.0.0
+  description: API for the Humanoid Robotics Textbook RAG chatbot.
+
+paths:
+  /chat:
+    post:
+      summary: Get a response from the RAG chatbot
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatRequest'
+      responses:
+        '200':
+          description: A successful response from the chatbot.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatResponse'
+        '422':
+          description: Validation error (e.g., empty message).
+
+components:
+  schemas:
+    ChatRequest:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The user's question.
+          example: "What is inverse kinematics?"
+      required:
+        - message
+    
+    ChatResponse:
+      type: object
+      properties:
+        response:
+          type: string
+          description: The chatbot's answer.
+          example: "Inverse kinematics is the process of calculating the joint parameters of a robot's kinematic chain from a desired end-effector position."
