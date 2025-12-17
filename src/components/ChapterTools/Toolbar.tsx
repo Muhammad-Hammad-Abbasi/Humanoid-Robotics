@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import styles from './styles.module.css';
 
 // --- Helper Functions & Components ---
-
 const formatText = (text) => {
   if (typeof text !== 'string') return '';
   // Remove frontmatter, then remove markdown symbols for clean text
@@ -24,7 +23,6 @@ const Modal = ({ children, onClose }) => (
 );
 
 // --- Main Toolbar Component ---
-
 const Toolbar = () => {
   const [isTranslateModalOpen, setIsTranslateModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
