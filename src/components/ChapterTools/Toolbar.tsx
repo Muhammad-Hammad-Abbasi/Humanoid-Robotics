@@ -46,7 +46,7 @@ const Toolbar = () => {
     setTranslationResult(''); 
     
     try {
-      const response = await fetch('http://127.0.0.1:8000/translate', {
+      const response = await fetch('https://humanoid-robotics.onrender.com/translate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ language, chapter_id: chapter }),
@@ -75,7 +75,7 @@ const Toolbar = () => {
     { id: '09', name: 'Module 9: Hardware' },
   ];
 
-  const resultStyle = {
+  const resultStyle: React.CSSProperties = {
     direction: language === 'Urdu' ? 'rtl' : 'ltr',
     textAlign: language === 'Urdu' ? 'right' : 'left',
     fontFamily: language === 'Urdu' ? 'Tahoma, Arial, sans-serif' : 'inherit',
