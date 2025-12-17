@@ -4,11 +4,11 @@
 
 ## Phase 1: Setup (Shared Infrastructure)
 
-- [ ] T001 Verify `backend/` directory exists, or create it.
-- [ ] T002 Create `backend/.gitignore` if it doesn't exist, ensuring it excludes `.env`, `__pycache__`, and `.venv`.
-- [ ] T003 Initialize a `uv` project in the `backend/` directory.
-- [ ] T004 Install dependencies: `fastapi`, `uvicorn`, `litellm`, `python-dotenv`, `pydantic`, `qdrant-client`, `cohere`.
-- [ ] T005 Create `backend/.env` with placeholders for `GEMINI_API_KEY`, `QDRANT_URL`, and `QDRANT_API_KEY`.
+- [x] T001 Verify `backend/` directory exists, or create it.
+- [x] T002 Create `backend/.gitignore` if it doesn't exist, ensuring it excludes `.env`, `__pycache__`, and `.venv`.
+- [x] T003 Initialize a `uv` project in the `backend/` directory.
+- [x] T004 Install dependencies: `fastapi`, `uvicorn`, `litellm`, `python-dotenv`, `pydantic`, `qdrant-client`, `cohere`.
+- [x] T005 Create `backend/.env` with placeholders for `GEMINI_API_KEY`, `QDRANT_URL`, and `QDRANT_API_KEY`.
 
 ---
 
@@ -20,19 +20,19 @@
 
 ### Implementation for User Story 1
 
-- [ ] T006 [US1] Create `backend/ingest.py` with a function to load all `.mdx` documents from the `../docs` directory.
-- [ ] T007 [US1] Implement embedding and storage logic in `backend/ingest.py`. This includes connecting to Qdrant, creating a collection, and uploading the embedded documents using Cohere.
-- [ ] T008 [US1] Create `backend/server.py` and initialize a FastAPI application.
-- [ ] T009 [US1] Implement CORS middleware in `backend/server.py` to allow requests from the frontend.
-- [ ] T010 [US1] Define the `ChatRequest` Pydantic model in `backend/server.py`.
-- [ ] T011 [US1] Implement the `POST /chat` endpoint in `backend/server.py`.
-- [ ] T012 [US1] Add the core RAG logic to the `/chat` endpoint: embed the user's query with Cohere, search Qdrant for context, and use `litellm.completion` with the `gemini/gemini-2.0-flash` model to generate a response.
+- [x] T006 [US1] Create `backend/ingest.py` with a function to load all `.mdx` documents from the `../docs` directory.
+- [x] T007 [US1] Implement embedding and storage logic in `backend/ingest.py`. This includes connecting to Qdrant, creating a collection, and uploading the embedded documents using Cohere.
+- [x] T008 [US1] Create `backend/server.py` and initialize a FastAPI application.
+- [x] T009 [US1] Implement CORS middleware in `backend/server.py` to allow requests from the frontend.
+- [x] T010 [US1] Define the `ChatRequest` Pydantic model in `backend/server.py`.
+- [x] T011 [US1] Implement the `POST /chat` endpoint in `backend/server.py`.
+- [x] T012 [US1] Add the core RAG logic to the `/chat` endpoint: embed the user's query with Cohere, search Qdrant for context, and use `litellm.completion` with the `gemini/gemini-2.0-flash` model to generate a response.
 
 ---
 
 ## Phase 3: Polish & Cross-Cutting Concerns
 
-- [ ] T013 Create or update `backend/README.md` with detailed instructions on setup, environment configuration, and how to run both the `ingest.py` script and the `server.py` application.
+- [x] T013 Create or update `backend/README.md` with detailed instructions on setup, environment configuration, and how to run both the `ingest.py` script and the `server.py` application.
 
 ---
 

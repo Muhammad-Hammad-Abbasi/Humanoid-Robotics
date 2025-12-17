@@ -1,14 +1,10 @@
-
-import os
 import glob
-import cohere
-from qdrant_client import QdrantClient, models
+import os
 from dotenv import load_dotenv
+from qdrant_client import QdrantClient, models
+import cohere
 
 load_dotenv()
-
-# Initialize Cohere client
-co = cohere.Client(os.getenv("COHERE_API_KEY"))
 
 def load_docs():
     """Load all .mdx files from the docs directory."""
@@ -16,14 +12,15 @@ def load_docs():
 
 def embed_and_store(docs):
     """Embed documents and store them in Qdrant."""
+    co = cohere.Client(os.getenv("COHERE_API_KEY"))
     qdrant = QdrantClient(
         url=os.getenv("QDRANT_URL"), 
         api_key=os.getenv("QDRANT_API_KEY"),
     )
 
-    # Re-create the collection
+    collection_name = "robotics_textbook_litellm"
     qdrant.recreate_collection(
-        collection_name="robotics_textbook",
+        collection_name=collection_name,
         vectors_config=models.VectorParams(size=1024, distance=models.Distance.COSINE),
     )
 
@@ -42,21 +39,22 @@ def embed_and_store(docs):
         )
         
         qdrant.upload_points(
-            collection_name="robotics_textbook",
+            collection_name=collection_name,
             points=[
                 models.PointStruct(
                     id=i,
                     vector=response.embeddings[0],
-                    payload={"path": doc_path}
+                    payload={"path": doc_path, "content": content}
                 )
             ],
         )
-        print(f"Uploaded {doc_path}")
+        print(f"Uploaded: {doc_path}")
 
 if __name__ == "__main__":
-    documents = load_docs()
-    if documents:
-        embed_and_store(documents)
+    docs = load_docs()
+    if docs:
+        print(f"Found {len(docs)} documents to ingest.")
+        embed_and_store(docs)
         print("Data ingestion complete.")
     else:
         print("No documents found to ingest.")
