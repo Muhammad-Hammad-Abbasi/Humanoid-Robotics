@@ -68,7 +68,7 @@ const ChatWidget = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/chat', {
+      const response = await fetch('https://humanoid-robotics.onrender.com/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: userQuestion }),
@@ -108,7 +108,7 @@ const ChatWidget = () => {
       position: 'fixed',
       display: 'flex',
       flexDirection: 'column',
-      zIndex: 99999, // Ensure it's on top
+      zIndex: 99999, 
       overflow: 'hidden',
       border: '1px solid rgba(255, 255, 255, 0.18)',
       boxShadow: '0 8px 32px rgba(31, 38, 135, 0.37)',
