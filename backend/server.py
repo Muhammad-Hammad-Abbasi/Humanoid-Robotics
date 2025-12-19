@@ -1,17 +1,17 @@
 import os
 import cohere
-from google import genai  # New Google Library
+from google import genai  
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from qdrant_client import QdrantClient
+from qdrant_client import QdrantClient 
 from dotenv import load_dotenv
 
 # Load Environment Variables
 load_dotenv()
 
 # Initialize FastAPI
-app = FastAPI()
+app = FastAPI() 
 
 # --- 1. SETUP GOOGLE GEMINI (New SDK) ---
 client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
