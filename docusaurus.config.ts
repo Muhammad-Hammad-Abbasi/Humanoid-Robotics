@@ -69,7 +69,10 @@ const config: Config = {
           position: 'left',
           label: 'Chapters',
         },
-        {to: '/login', label: 'Login', position: 'right'},
+        {
+          type: 'custom-auth-item',
+          position: 'right',
+        },
         {
           href: 'https://github.com/Muhammad-Hammad-Abbasi/Humanoid-Robotics',
           label: 'GitHub',
