@@ -9,3 +9,13 @@
   height: 200px;
   width: 200px;
 }
+
+.featureCard {
+  border-top: 5px solid var(--ifm-color-primary);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.featureCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}

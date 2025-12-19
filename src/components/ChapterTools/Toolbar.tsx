@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import styles from './styles.module.css';
 
 // --- Helper Functions & Components ---
-
 const formatText = (text) => {
   if (typeof text !== 'string') return '';
   // Remove frontmatter, then remove markdown symbols for clean text
@@ -24,7 +23,6 @@ const Modal = ({ children, onClose }) => (
 );
 
 // --- Main Toolbar Component ---
-
 const Toolbar = () => {
   const [isTranslateModalOpen, setIsTranslateModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -46,7 +44,7 @@ const Toolbar = () => {
     setTranslationResult(''); 
     
     try {
-      const response = await fetch('http://127.0.0.1:8000/translate', {
+      const response = await fetch('https://humanoid-robotics.onrender.com/translate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ language, chapter_id: chapter }),
@@ -75,7 +73,7 @@ const Toolbar = () => {
     { id: '09', name: 'Module 9: Hardware' },
   ];
 
-  const resultStyle = {
+  const resultStyle: React.CSSProperties = {
     direction: language === 'Urdu' ? 'rtl' : 'ltr',
     textAlign: language === 'Urdu' ? 'right' : 'left',
     fontFamily: language === 'Urdu' ? 'Tahoma, Arial, sans-serif' : 'inherit',
